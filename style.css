@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+    background: #e8f7ea;
+    margin: 0;
+}
+
+.phone {
+    max-width: 420px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    color: #157a2c;
+}
+
+.card {
+    background: white;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 3px 8px #cccccc;
+}
+
+.points {
+    text-align: center;
+}
+
+.points h1 {
+    font-size: 50px;
+    color: #157a2c;
+}
+
+.bar {
+    background: #ddd;
+    height: 15px;
+    border-radius: 20px;
+}
+
+#progress {
+    height: 15px;
+    width: 0%;
+    background: #1eb64b;
+    border-radius: 20px;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    background: #1eb64b;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.reward {
+    background: #f0fff2;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+ul {
+    padding-left: 20px;
+}

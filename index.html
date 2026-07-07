@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EcoCrush Reward System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="phone">
+
+    <div class="header">
+        <h1>🌱 EcoCrush</h1>
+        <p>Smart Recycling Reward System</p>
+    </div>
+
+    <div class="card">
+        <h3>User</h3>
+        <h2>Jay</h2>
+    </div>
+
+    <div class="card points">
+        <h3>Total Points</h3>
+        <h1 id="points">0</h1>
+    </div>
+
+    <div class="card">
+        <h3>Cans Recycled</h3>
+        <h1 id="cans">0</h1>
+    </div>
+
+    <div class="card">
+        <h3>Reward Progress</h3>
+
+        <div class="bar">
+            <div id="progress"></div>
+        </div>
+
+        <p>
+            <span id="current">0</span>/50 points to RM1 Voucher
+        </p>
+    </div>
+
+    <button onclick="recycleCan()">
+        ♻️ Simulate Can Insert
+    </button>
+
+    <div class="card">
+        <h3>Recent Activity</h3>
+        <ul id="history">
+            <li>No activity yet</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Available Rewards</h3>
+
+        <div class="reward">RM1 Voucher - 50 points</div>
+        <div class="reward">Eco Bottle - 150 points</div>
+        <div class="reward">Eco T-Shirt - 300 points</div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+<script type="module" src="firebase.js"></script>
+
+</body>
+</html>
