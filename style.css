@@ -61,6 +61,29 @@ button {
     cursor: pointer;
 }
 
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #157a2c;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#profileStatus {
+    text-align: center;
+    font-size: 13px;
+    color: #157a2c;
+    min-height: 18px;
+}
+
 .reward {
     background: #f0fff2;
     padding: 10px;
