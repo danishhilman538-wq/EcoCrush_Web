@@ -1,3 +1,6 @@
+// Global variable to store the current user's name
+let currentUser = "";
+
 // Function triggered when user clicks Save Profile
 function saveProfile() {
     let name = document.getElementById("profileName").value;
@@ -10,6 +13,8 @@ function saveProfile() {
         document.getElementById("profileStatus").style.color = "red";
         return;
     }
+
+    currentUser = name; // Store it so we can filter records later!
 
     // 1. Hide the input fields and button
     document.getElementById("profileName").disabled = true;
@@ -60,7 +65,11 @@ function loadStatsFromFirebase() {
             // Loop through all records in Firebase
             data.documents.forEach(doc => {
                 let fields = doc.fields;
-                if (fields) {
+                
+                // ONLY process records that belong to the current user!
+                let recordName = fields.name ? fields.name.stringValue : "";
+                
+                if (fields && recordName === currentUser) {
                     bottles += 1;
                     let pts = parseInt(fields.total_points ? fields.total_points.integerValue : "0");
                     totalPoints += pts;
