@@ -3,12 +3,14 @@ function saveProfile() {
     let name = document.getElementById("profileName").value;
     let email = document.getElementById("profileEmail").value;
     let phone = document.getElementById("profilePhone").value;
+
     // RULE: Enforce that all details are filled before proceeding!
     if(name === "" || email === "" || phone === "") {
         document.getElementById("profileStatus").innerText = "⚠️ Please fill all details first!";
         document.getElementById("profileStatus").style.color = "red";
         return;
     }
+
     // 1. Hide the input fields and button
     document.getElementById("profileName").disabled = true;
     document.getElementById("profileEmail").disabled = true;
@@ -17,6 +19,7 @@ function saveProfile() {
     
     document.getElementById("profileStatus").innerText = "✅ Profile Saved!";
     document.getElementById("profileStatus").style.color = "green";
+
     // 2. Reveal the Dashboard with stats
     document.getElementById("dashboard").style.display = "block";
     
@@ -32,9 +35,14 @@ function saveProfile() {
             }
         })
     });
-    // 4. Load the Machine Stats and GPS Location from Firebase
+
+    // 4. Load the Machine Stats and GPS Location from Firebase immediately...
     loadStatsFromFirebase();
+    
+    // 5. ...and keep polling Firebase every 3 seconds for REAL-TIME updates!
+    setInterval(loadStatsFromFirebase, 3000);
 }
+
 // Function to fetch Date, Time, GPS, and Points from Firebase
 function loadStatsFromFirebase() {
     let url = "https://firestore.googleapis.com/v1/projects/ecocrush-53d12/databases/(default)/documents/records";
@@ -63,6 +71,7 @@ function loadStatsFromFirebase() {
                     // Format Date and Time nicely
                     let dateObj = new Date(timeRaw);
                     let formattedTime = dateObj.toLocaleDateString() + " " + dateObj.toLocaleTimeString();
+
                     // Create the Recent Activity List Item
                     let item = document.createElement("li");
                     item.innerHTML = `<strong>+${pts} Point</strong> <br><small>📍 ${gps} <br>🕒 ${formattedTime}</small>`;
@@ -78,6 +87,7 @@ function loadStatsFromFirebase() {
         // Update the big numbers on the dashboard
         document.getElementById("points").innerText = totalPoints;
         document.getElementById("cans").innerText = bottles;
+
         let percentage = (totalPoints / 50) * 100;
         if (percentage > 100) { percentage = 100; }
         
