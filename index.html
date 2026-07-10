@@ -3,79 +3,63 @@
 <head>
     <title>EcoCrush Reward System</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hide the dashboard initially */
+        #dashboard {
+            display: none;
+        }
+    </style>
 </head>
-
 <body>
-
 <div class="phone">
-
     <div class="header">
         <h1>🌱 EcoCrush</h1>
         <p>Smart Recycling Reward System</p>
     </div>
-
-    <div class="card">
+    <!-- 1. Profile Section -->
+    <div class="card" id="profileCard">
         <h3>User Profile</h3>
-
         <label>Name</label>
         <input type="text" id="profileName" placeholder="Your name">
-
         <label>Email</label>
         <input type="email" id="profileEmail" placeholder="you@example.com">
-
         <label>Phone</label>
         <input type="tel" id="profilePhone" placeholder="012-3456789">
-
-        <button id="saveProfileBtn">💾 Save Profile</button>
+        <button id="saveProfileBtn" onclick="saveProfile()">💾 Save Profile</button>
         <p id="profileStatus"></p>
     </div>
-
-    <div class="card points">
-        <h3>Total Points</h3>
-        <h1 id="points">0</h1>
-    </div>
-
-    <div class="card">
-        <h3>Cans Recycled</h3>
-        <h1 id="cans">0</h1>
-    </div>
-
-    <div class="card">
-        <h3>Reward Progress</h3>
-
-        <div class="bar">
-            <div id="progress"></div>
+    <!-- 2. Dashboard Section (Hidden until profile is saved) -->
+    <div id="dashboard">
+        <div class="card points">
+            <h3>Total Points</h3>
+            <h1 id="points">0</h1>
         </div>
-
-        <p>
-            <span id="current">0</span>/50 points to RM1 Voucher
-        </p>
+        <div class="card">
+            <h3>Cans Recycled</h3>
+            <h1 id="cans">0</h1>
+        </div>
+        <div class="card">
+            <h3>Reward Progress</h3>
+            <div class="bar">
+                <div id="progress"></div>
+            </div>
+            <p><span id="current">0</span>/50 points to RM1 Voucher</p>
+        </div>
+        <div class="card">
+            <h3>Recent Activity</h3>
+            <ul id="history">
+                <li>No activity yet</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Available Rewards</h3>
+            <div class="reward">RM1 Voucher - 50 points</div>
+            <div class="reward">Eco Bottle - 150 points</div>
+            <div class="reward">Eco T-Shirt - 300 points</div>
+        </div>
     </div>
-
-    <button onclick="recycleCan()">
-        ♻️ Simulate Can Insert
-    </button>
-
-    <div class="card">
-        <h3>Recent Activity</h3>
-        <ul id="history">
-            <li>No activity yet</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h3>Available Rewards</h3>
-
-        <div class="reward">RM1 Voucher - 50 points</div>
-        <div class="reward">Eco Bottle - 150 points</div>
-        <div class="reward">Eco T-Shirt - 300 points</div>
-
-    </div>
-
 </div>
-
 <script src="app.js"></script>
 <script type="module" src="firebase.js"></script>
-
 </body>
 </html>
