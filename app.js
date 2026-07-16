@@ -29,15 +29,14 @@ function saveProfile() {
     document.getElementById("dashboard").style.display = "block";
     
     // 3. Save the profile to Firebase so the Python script can read it!
-    fetch("https://firestore.googleapis.com/v1/projects/ecocrush-53d12/databases/(default)/documents/users/latest_session", {
-        method: "PATCH",
+    fetch("https://firestore.googleapis.com/v1/projects/ecocrush-53d12/databases/(default)/documents/users", {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             fields: {
                 name: { stringValue: name },
                 email: { stringValue: email },
-                phone: { stringValue: phone },
-                timestamp: { timestampValue: new Date().toISOString() }
+                phone: { stringValue: phone }
             }
         })
     });
