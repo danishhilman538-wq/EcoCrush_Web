@@ -51,7 +51,7 @@ function saveProfile() {
 
 // Function to fetch Date, Time, GPS, and Points from Firebase
 function loadStatsFromFirebase() {
-    let url = "https://firestore.googleapis.com/v1/projects/ecocrush-53d12/databases/(default)/documents/records";
+    let url = "https://firestore.googleapis.com/v1/projects/ecocrush-53d12/databases/(default)/documents/records?pageSize=1000";
     
     fetch(url)
     .then(response => response.json())
@@ -108,3 +108,4 @@ function loadStatsFromFirebase() {
         document.getElementById("history").innerHTML = "<li>Error loading data from Firebase</li>";
     });
 }
+
